@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/WatchStore/.vs/WatchStore
+/WatchStore/WatchStore/bin/Debug/netcoreapp3.1
+/WatchStore/WatchStore/obj
