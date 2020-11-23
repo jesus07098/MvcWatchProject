@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WatchStore.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emailusuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.passwordusuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechacreacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailusuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.passwordusuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechacreacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.usuarioID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.usuarioID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.usuarioID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -5,22 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WatchStore.Data;
 using WatchStore.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WatchStore.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DbWatchContext _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(DbWatchContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _context.Marcas.ToListAsync());
+            //return View();
         }
 
         public IActionResult Privacy()
