@@ -14,7 +14,10 @@ namespace WatchStore.Models
 
         public DateTime fechacreacion { get; set; }
 
-        public virtual ICollection<Direccion> Direcciones { get; set; }
+        public ICollection<Direccion> Direcciones { get; set; }
+        public ICollection<Rol_usuario> Roles_usuario { get; set; }
+        public ICollection<Itemcarrito> Itemscarrito { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; }
 
     }
 }

@@ -5,14 +5,13 @@ using System.Threading.Tasks;
 
 namespace WatchStore.Models
 {
-    public class Marca
+    public class Imagenproducto
     {
-        public int marcaID { get; set; }
-        public string nombremarca { get; set; }
+        public int imagenproductoID { get; set; }
+        public int productoID { get; set; }
         public string urlimagen { get; set; }
 
-        public ICollection<Producto> Productos { get; set; }
-
+        public Producto Producto { get; set; }
 
     }
 }

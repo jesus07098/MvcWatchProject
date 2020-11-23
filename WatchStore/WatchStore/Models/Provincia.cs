@@ -9,6 +9,8 @@ namespace WatchStore.Models
     {
         public int provinciaID { get; set; }
         public string desprovincia { get; set; }
-        public virtual ICollection<Direccion> Direcciones { get; set; }
+        public ICollection<Direccion> Direcciones { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; }
+
     }
 }
