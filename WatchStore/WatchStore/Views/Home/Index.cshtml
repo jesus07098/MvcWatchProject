@@ -1,10 +1,11 @@
-﻿@model IEnumerable<WatchStore.Models.Marca>
+﻿@using WatchStore.Models.CustomModels;
+@model HomeModel
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<h2>Marcas Populares</h2>
+<h3>Marcas Populares</h3>
 <div class='demo-container'>
     <div class='carousel'>
         <input checked='checked' class='carousel__activator' id='carousel-slide-activator-1' name='carousel' type='radio'>
@@ -37,24 +38,42 @@
         <div class='carousel__screen'>
             <div class='carousel__track'>
 
-                @foreach (var item in Model)
+                @foreach (var item in Model.Marca)
                 {
                     <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-5'>
                         <div class='demo-content'>
-                            <img src="@Html.DisplayFor(modelItem => item.urlimagen)">
+                            <a href="">
+                                <img src="@Html.DisplayFor(modelItem => item.urlimagen)">
+                                </a>
                         </div>
                     </div>
                 }
-              
+
             </div>
         </div>
     </div>
 </div>
 <br />
 <br />
+<h3>Más vendidos</h3>
+<div class="product-grid">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    @foreach (var item in Model.Producto)
+    {
+        <div class="product">
+            <a href="">
+                <img src="@item.Imagenesproducto.First().urlimagen">
+                <hr />
+                <p class="watchtitle">@item.pronombre</p>
+                <p class="watchprice">$@String.Format("{0:0.00}", item.proprecio)</p>
+            </a>
+        </div>
+    }
+
+    </div>
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
 

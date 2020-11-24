@@ -19,14 +19,14 @@ namespace WatchStore.Data
 
             var marcas = new Marca[]
             {
-            new Models.Marca{nombremarca="Breitling", urlimagen="/images/brei.jpg"},
-            new Models.Marca{nombremarca="Casio", urlimagen="/images/casio.jpg"},
-            new Models.Marca{nombremarca="Hugo", urlimagen="/images/hugo.jpg"},
-            new Models.Marca{nombremarca="Iron", urlimagen="/images/iron.jpg"},
-            new Models.Marca{nombremarca="omega", urlimagen="/images/omega.jpg"},
-            new Models.Marca{nombremarca="Bulova", urlimagen="/images/bulova.jpg"},
-            new Models.Marca{nombremarca="Citizen", urlimagen="/images/citizen.jpg"},
-            new Models.Marca{nombremarca="Rolex", urlimagen="/images/rolex.jpg"}
+            new Models.Marca{nombremarca="Breitling", urlimagen="/images/marcas/brei.jpg"},
+            new Models.Marca{nombremarca="Casio", urlimagen="/images/marcas/casio.jpg"},
+            new Models.Marca{nombremarca="Hugo", urlimagen="/images/marcas/hugo.jpg"},
+            new Models.Marca{nombremarca="Iron", urlimagen="/images/marcas/iron.jpg"},
+            new Models.Marca{nombremarca="omega", urlimagen="/images/marcas/omega.jpg"},
+            new Models.Marca{nombremarca="Bulova", urlimagen="/images/marcas/bulova.jpg"},
+            new Models.Marca{nombremarca="Citizen", urlimagen="/images/marcas/citizen.jpg"},
+            new Models.Marca{nombremarca="Rolex", urlimagen="/images/marcas/rolex.jpg"}
             };
             foreach (Marca m in marcas)
             {
@@ -34,13 +34,6 @@ namespace WatchStore.Data
             }
             context.SaveChanges();
 
-
-
-            // Look for any user.
-            if (context.Usuarios.Any())
-            {
-                return;   // DB has been seeded
-            }
 
             var usuarios = new Usuario[]
             {
@@ -59,43 +52,54 @@ namespace WatchStore.Data
             }
             context.SaveChanges();
 
+
+
             var provincias = new Provincia[]
             {
-            new Models.Provincia{provinciaID=1050,desprovincia="Chemistry"},
-            new Models.Provincia{provinciaID=4022,desprovincia="Microeconomics"},
-            new Models.Provincia{provinciaID=4041,desprovincia="Macroeconomics"},
-            new Models.Provincia{provinciaID=1045,desprovincia="Calculus"},
-            new Models.Provincia{provinciaID=3141,desprovincia="Trigonometry"},
-            new Models.Provincia{provinciaID=2021,desprovincia="Composition"},
-            new Models.Provincia{provinciaID=2042,desprovincia="Literature"}
+            new Models.Provincia{desprovincia="Chemistry"},
+            new Models.Provincia{desprovincia="Microeconomics"},
+            new Models.Provincia{desprovincia="Macroeconomics"},
+            new Models.Provincia{desprovincia="Calculus"},
+            new Models.Provincia{desprovincia="Trigonometry"},
+            new Models.Provincia{desprovincia="Composition"},
+            new Models.Provincia{desprovincia="Literature"}
             };
-
             foreach (Provincia p in provincias)
             {
                 context.Provincias.Add(p);
             }
             context.SaveChanges();
+  
 
-            var direcciones = new Direccion[]
+            var productos = new Producto[]
+           {
+            new Models.Producto{marcaID=1,pronombre="Townsman Automatic Dark wood Leather Watch", proprecio=344.00, prodescripcion="", prostock=2},
+            new Models.Producto{marcaID=1,pronombre="Creative Simplicity mujeres reloj de cuero genuino elegante mujeres ", proprecio=200, prodescripcion="", prostock=2},
+            new Models.Producto{marcaID=1,pronombre="Breitling Superocean Heritage aviator", proprecio=550, prodescripcion="", prostock=2},
+            new Models.Producto{marcaID=2,pronombre="SmartWatch  Black Watch Wear OS by Google", proprecio=252, prodescripcion="", prostock=2}
+           };
+
+            foreach (Producto x in productos)
             {
-            new Models.Direccion{usuarioID=1,provinciaID=1050},
-            new Models.Direccion{usuarioID=1,provinciaID=4022},
-            new Models.Direccion{usuarioID=1,provinciaID=4041},
-            new Models.Direccion{usuarioID=2,provinciaID=1045},
-            new Models.Direccion{usuarioID=2,provinciaID=3141},
-            new Models.Direccion{usuarioID=2,provinciaID=2021},
-            new Models.Direccion{usuarioID=3,provinciaID=1050},
-            new Models.Direccion{usuarioID=4,provinciaID=1050},
-            new Models.Direccion{usuarioID=4,provinciaID=4022},
-            new Models.Direccion{usuarioID=5,provinciaID=4041},
-            new Models.Direccion{usuarioID=6,provinciaID=1045},
-            new Models.Direccion{usuarioID=7,provinciaID=3141}
-            };
-            foreach (Direccion d in direcciones)
-            {
-                context.Direcciones.Add(d);
+                context.Productos.Add(x);
             }
             context.SaveChanges();
+
+
+            var imagenesproductos = new Imagenproducto[]
+           {
+            new Models.Imagenproducto{productoID=4,urlimagen="/images/relojes/townsman automatic.jpg"},
+            new Models.Imagenproducto{productoID=3,urlimagen="/images/relojes/2.jpg"},
+            new Models.Imagenproducto{productoID=2,urlimagen="/images/relojes/breitling-blue.jpg"},
+            new Models.Imagenproducto{productoID=1,urlimagen="/images/relojes/smartwatch.jpg"}
+           };
+            foreach (Imagenproducto x in imagenesproductos)
+            {
+                context.Imagenesproducto.Add(x);
+            }
+            context.SaveChanges();
+
+
         }
 
     }

@@ -8,13 +8,13 @@ using Microsoft.Extensions.Logging;
 using WatchStore.Data;
 using WatchStore.Models;
 using Microsoft.EntityFrameworkCore;
+using WatchStore.Models.CustomModels;
 
 namespace WatchStore.Controllers
 {
     public class HomeController : Controller
     {
         private readonly DbWatchContext _context;
-        private readonly ILogger<HomeController> _logger;
 
         public HomeController(DbWatchContext context)
         {
@@ -23,7 +23,13 @@ namespace WatchStore.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Marcas.ToListAsync());
+            var model = new HomeModel();
+            model.Marca = await _context.Marcas.ToListAsync();
+            model.Producto = await _context.Productos
+                .Include(p => p.Imagenesproducto)
+                .AsNoTracking()
+                .ToListAsync();
+            return View(model);
             //return View();
         }
 
