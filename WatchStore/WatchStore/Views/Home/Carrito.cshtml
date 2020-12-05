@@ -1,0 +1,42 @@
+﻿@model Usuario;
+
+@{
+    ViewData["Title"] = "Carrito";
+}
+
+<h1>Carrito</h1>
+
+<div class="row">
+    <div class="column left">
+
+        @foreach (var item in Model.Itemscarrito)
+        {
+
+            <div class="itemcarrito">
+                <div class="beside margintop">
+                    <img class="fotocarrito" src="@item.Producto.Imagenesproducto.First().urlimagen" />
+                </div>
+                <div class="beside marginleft margintop">
+                    <h3 class="h3carrito">@item.Producto.pronombre</h3>
+                    <p style="font-size:25px">$@item.Producto.proprecio</p>
+                    <select class="form-control combosize" id="StudentGender" name="Cantidad">
+                        <option>Cantidad</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+
+                <div class="beside topright">
+
+                    <button class="botonsinfondo" href="facebook.com"><i class="fas fa-times fa-2x"></i></button>
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+    <div class="column right"></div>
+</div>
+

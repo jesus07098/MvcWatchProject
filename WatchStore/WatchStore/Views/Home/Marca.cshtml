@@ -1,0 +1,24 @@
+﻿@model WatchStore.Models.Marca
+@{
+    ViewData["Title"] = "Marca";
+}
+
+    <div class="text-center">
+        <img class="imagenmarca" src="@Html.DisplayFor(model => model.urlimagen)">
+        </div>
+
+    <div class="product-grid">
+
+        @foreach (var item in Model.Productos)
+        {
+            <div class="product">
+                <a asp-action="Producto" asp-route-id="@item.productoID" asp-route-urlname="@item.pronombre">
+                    <img src="@item.Imagenesproducto.First().urlimagen">
+                    <hr />
+                    <p class="watchtitle">@item.pronombre</p>
+                    <p class="watchprice">$@String.Format("{0:0.00}", item.proprecio)</p>
+                </a>
+            </div>
+        }
+
+    </div>

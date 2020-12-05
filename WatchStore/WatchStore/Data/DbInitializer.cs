@@ -73,7 +73,7 @@ namespace WatchStore.Data
 
             var productos = new Producto[]
            {
-            new Models.Producto{marcaID=1,pronombre="Townsman Automatic Dark wood Leather Watch", proprecio=344.00, prodescripcion="", prostock=2},
+            new Models.Producto{marcaID=1,pronombre="Townsman Automatic Dark wood Leather Watch", proprecio=344.00, prodescripcion="Sistema operativo: Desarrollado con Wear OS de GoogleCompatibilidad: use la aplicación Google WearOS en su teléfono con Android ™ 6.0+ (excluyendo la edición Go), iOS 12.0+Procesador: Qualcomm® Snapdragon ™ Wear 3100Memoria: 1 GB de RAM, 8 GB de almacenamientoPantalla: 1.28 AMOLED / 416 x 416 / 328ppiEntrada: 2 pulsadores adicionales(configurables), botón de inicio giratorio, pantalla táctil, vozSonido / Actuador: Altavoz, Micrófono, Vibración", prostock=2},
             new Models.Producto{marcaID=1,pronombre="Creative Simplicity mujeres reloj de cuero genuino elegante mujeres ", proprecio=200, prodescripcion="", prostock=2},
             new Models.Producto{marcaID=1,pronombre="Breitling Superocean Heritage aviator", proprecio=550, prodescripcion="", prostock=2},
             new Models.Producto{marcaID=2,pronombre="SmartWatch  Black Watch Wear OS by Google", proprecio=252, prodescripcion="", prostock=2}
@@ -88,6 +88,8 @@ namespace WatchStore.Data
 
             var imagenesproductos = new Imagenproducto[]
            {
+            new Models.Imagenproducto{productoID=4,urlimagen="/images/relojes/townsman 2.jpg"},
+            new Models.Imagenproducto{productoID=4,urlimagen="/images/relojes/townsman 3.jpg"},
             new Models.Imagenproducto{productoID=4,urlimagen="/images/relojes/townsman automatic.jpg"},
             new Models.Imagenproducto{productoID=3,urlimagen="/images/relojes/2.jpg"},
             new Models.Imagenproducto{productoID=2,urlimagen="/images/relojes/breitling-blue.jpg"},
@@ -98,6 +100,8 @@ namespace WatchStore.Data
                 context.Imagenesproducto.Add(x);
             }
             context.SaveChanges();
+
+
 
 
         }
